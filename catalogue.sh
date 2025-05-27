@@ -69,6 +69,7 @@ cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 dnf install mongodb-mongosh -y &>>$LOG_FILE
 VALIDATE $? "Installing mongodb client"
 
-mongosh --host mangodb.deena.fun </app/db/master-data.js &>>$LOG_FILE
-
+mongosh --host mongo --host mongodb.deena.fun --port 27017
+ </app/db/master-data.js &>>$LOG_FILE
+VALIDATE $? "loading data into mongodb"
 
